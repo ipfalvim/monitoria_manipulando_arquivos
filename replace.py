@@ -9,14 +9,16 @@ def replace_pattern(pattern, replace, source, dest):
         line = line.replace(pattern, replace)
         fout.write(line)
 
-    fin.close()
-    fout.close()
-
+    try:
+        fin.close()
+        fout.close()
+    except:
+        return print("Erro no fechamento dos arquivos!!!")
 
 def main():
     pattern = 'Ilha'
     replace = 'Floresta'
-    source = 'aaapoema.txt'
+    source = 'poema.txt'
     dest = source + '.replaced'
     replace_pattern(pattern, replace, source, dest)
 
