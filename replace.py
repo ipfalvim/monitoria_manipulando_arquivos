@@ -1,7 +1,9 @@
 def replace_pattern(pattern, replace, source, dest):
-    
-    fin = open(source, 'r')
-    fout = open(dest, 'w')
+    try:
+        fin = open(source, 'r')
+        fout = open(dest, 'w')
+    except:
+        return print("Erro na abertura do arquivo, verifique o nome")
 
     for line in fin:
         line = line.replace(pattern, replace)
@@ -14,7 +16,7 @@ def replace_pattern(pattern, replace, source, dest):
 def main():
     pattern = 'Ilha'
     replace = 'Floresta'
-    source = 'poema.txt'
+    source = 'aaapoema.txt'
     dest = source + '.replaced'
     replace_pattern(pattern, replace, source, dest)
 
